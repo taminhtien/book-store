@@ -1,7 +1,46 @@
-%h1= @book.title
-= image_tag @book.image.url(:medium)
-%p= @book.description
-%p= @book.price
-
-= link_to "Edit", edit_book_path(@book), class: "btn btn-default"
-= link_to "Delete", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
+.panel.panel-default
+  .panel-heading
+    = @book.title
+  .panel-body
+    .row
+      .col-md-2
+        = image_tag @book.image.url(:medium)
+      .col-md-9.col-md-offset-1
+        .table-responsive
+          %table.table
+            %tbody
+              %tr
+                %td
+                  %strong Title:
+                %td= @book.title
+              %tr
+                %td
+                  %strong Price:
+                %td= @book.price
+              %tr
+                %td
+                  %strong Author:
+                %td= @book.author
+              %tr
+                %td
+                  %strong Publisher:
+                %td= @book.publisher
+              %tr
+                %td
+                  %strong Pages:
+                %td= @book.pages
+              %tr
+                %td
+                  %strong Public day:
+                %td= @book.public_date
+              %tr
+                %td
+                  %strong Categories:
+                %td= @book.categories
+              %tr
+                %td
+                  %strong Description:
+                %td= @book.description
+  .panel-footer
+    = link_to "Edit", edit_book_path(@book), class: "btn btn-primary"
+    = link_to "Delete", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
