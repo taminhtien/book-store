@@ -1,4 +1,9 @@
-- @books.each do |book|
-  %h2= link_to book.title, book
-  %p= book.description
-  %p= book.price
+.row
+  - @books.each do |book|
+    .col-md-3
+      .book
+        .image_wrapper
+          = link_to (image_tag book.image.url(:medium), class: "image"), book
+        %h2= link_to book.title, book
+        %p.author= book.author
+        %p.price= book.price
