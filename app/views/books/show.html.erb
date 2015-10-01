@@ -1,0 +1,7 @@
+<h1><%= @book.title %></h1>
+<%= image_tag @book.image.url(:medium) %>
+<p><%= @book.description %></p>
+<p><%= @book.price %></p>
+
+<%= link_to "Edit", edit_book_path(@book), class: "btn btn-default" %>
+<%= link_to "Delete", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
