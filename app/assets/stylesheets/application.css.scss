@@ -65,5 +65,12 @@ body {
 	}
 	.author {
 		font-size: 13px;
+	}
+	.price {
+		font-weight: bold;
 	}	
+}
+
+tr:first-child {
+	border: none;
 }
