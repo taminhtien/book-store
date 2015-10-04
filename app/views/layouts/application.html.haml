@@ -21,5 +21,14 @@
   .container
     - flash.each do |name, msg|
       = content_tag :div, msg, class: "alert alert-#{name}"
-    = yield
+    .row
+      .col-md-3
+        %p.lead Book Store
+        .list-group
+          .list-group-item= link_to 'Category 1', '#'
+          .list-group-item= link_to 'Category 2', '#'
+          .list-group-item= link_to 'Category 3', '#'
+      .col-md-9
+        .row
+          = yield
 

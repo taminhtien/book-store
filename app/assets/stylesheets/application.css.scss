@@ -28,49 +28,33 @@ body {
 	background: rgb(235, 238, 243);
 }
 
-.book {
-	background: white;
-	border-radius: 5px;
-	margin-bottom: 40px;
-	padding-bottom: 5px;
-	@include box-shadow;
-	.image_wrapper {
-		max-width: 100%;
-		height: 357px;
-		border-radius: 5px 5px 0px 0px;
-		overflow: hidden;
-	}
-	img {
-		width: 100%; // Adapt responsive
-		-webkit-transition: all .3s ease-out;
-	  -moz-transition: all .3s ease-out;
-	  -o-transition: all .3s ease-out;
-    transition: all .3s ease-out;
-		&:hover {
-			transform: scale(1.075);
-		}
-	}
-	h2 {
-		padding: 15px 5%;
-		margin: 0;
-		font-size: 20px;
-		font-weight: normal;
-		line-height: 1.5;
-		a {
-			color: $red;
-		}
-	}
-	p {
-		padding: 0 5%;
-	}
-	.author {
-		font-size: 13px;
-	}
-	.price {
-		font-weight: bold;
-	}	
+.caption {
+  p {
+    font-size: 13px;
+  }  
 }
 
-tr:first-child {
-	border: none;
+.ratings {
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #d17581;
+}
+
+.thumbnail {
+  padding: 0;
+  .img-wrapper {
+  	max-width: 100%;
+		height: 410px;
+		overflow: hidden;
+  }
+  img {
+  	width: 100%;
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+    &:hover {
+      transform: scale(1.075);
+    }
+  }
 }

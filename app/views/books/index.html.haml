@@ -1,9 +1,17 @@
-.row
-  - @books.each do |book|
-    .col-md-3
-      .book
-        .image_wrapper
-          = link_to (image_tag book.image.url(:medium), class: "image"), book
-        %h2= link_to truncate(book.title, length: 20), book
-        %p.author= book.author
-        %p.price= number_to_currency(book.price)
+- @books.each do |book|
+  .col-sm-4-col-lg-4.col-md-4
+    .thumbnail
+      .img-wrapper
+        = link_to (image_tag book.image.url(:medium), class: "image"), book
+      .caption
+        %h4.pull-right= number_to_currency(book.price)
+        %h4.title= link_to truncate(book.title, length: 15), book
+        %p= truncate(book.description, length: 100)
+      .ratings
+        .pull-right 15 reviews
+        %p
+          %span.glyphicon.glyphicon-star
+          %span.glyphicon.glyphicon-star
+          %span.glyphicon.glyphicon-star
+          %span.glyphicon.glyphicon-star
+          %span.glyphicon.glyphicon-star
