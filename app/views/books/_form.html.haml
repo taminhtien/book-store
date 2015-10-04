@@ -1,11 +1,14 @@
 = simple_form_for @book do |f|
-  = f.input :title, input_html: { class: "form-control" } 
-  = f.input :description, input_html: { class: "form-control" }
-  = f.input :price, input_html: { class: "form-control" }
-  = f.input :image, as: :file, input_html: { class: "form-control" }
-  = f.input :author, input_html: { class: "form-control" }
-  = f.input :publisher, input_html: { class: "form-control" }
-  = f.input :pages, input_html: { class: "form-control" }
-  = f.input :public_date, input_html: { class: "form-control" }
-  = f.input :categories, input_html: { class: "form-control" }
-  = f.button :submit
+  = f.error_notification
+  .form-inputs
+    = f.input :title, required: true, autofocus: true
+    = f.input :description, required: true
+    = f.input :price, required: true
+    = f.input :image, as: :file, input_html: { class: "form-control" }
+    = f.input :author
+    = f.input :publisher
+    = f.input :pages
+    = f.input :public_date
+    = f.input :categories
+  .form-actions
+    = f.button :submit, class: "btn btn-primary"
