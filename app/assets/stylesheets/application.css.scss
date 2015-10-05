@@ -23,7 +23,8 @@
 }
 
 $red: #DB6161;
-
+$blue-dark: #2a84be;
+$gray:  #7f8c8d;
 body {
 	background: rgb(235, 238, 243);
 }
@@ -31,6 +32,13 @@ body {
 .caption {
   p {
     font-size: 13px;
+    color: $gray;
+  }
+  .title {
+    a {
+      color: $blue-dark;
+      text-decoration: none;
+    }
   }  
 }
 
@@ -44,7 +52,7 @@ body {
   padding: 0;
   .img-wrapper {
   	max-width: 100%;
-		height: 410px;
+		height: 374px;
 		overflow: hidden;
   }
   img {
