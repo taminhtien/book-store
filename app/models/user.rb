@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :books
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 end

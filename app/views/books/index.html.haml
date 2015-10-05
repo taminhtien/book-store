@@ -2,16 +2,20 @@
   .col-sm-4-col-lg-4.col-md-4
     .thumbnail
       .img-wrapper
-        = link_to (image_tag book.image.url(:medium), class: "image"), book
+        = link_to (image_tag book.image.url(:medium), class: "cover"), book
       .caption
         %h4.pull-right= number_to_currency(book.price)
         %h4.title= link_to truncate(book.title, length: 15), book
         %p= truncate(book.description, length: 100)
       .ratings
-        .pull-right 15 reviews
-        %p
-          %span.glyphicon.glyphicon-star
-          %span.glyphicon.glyphicon-star
-          %span.glyphicon.glyphicon-star
-          %span.glyphicon.glyphicon-star
-          %span.glyphicon.glyphicon-star
+        .pull-right= pluralize(count_review(book), "review")
+        .star-rating{"data-score" => avg_review(book)}
+
+:javascript
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });

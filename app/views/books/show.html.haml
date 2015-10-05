@@ -57,12 +57,17 @@
     - @reviews.each do |review|
       .row
         .col-md-12
-          %span.glyphicon.glyphicon-star
-          %span.glyphicon.glyphicon-star
-          %span.glyphicon.glyphicon-star
-          %span.glyphicon.glyphicon-star
-          %span.glyphicon.glyphicon-star-empty
+          .star-rating{"data-score" => review.rating}
           = review.user.name
-          %span.pull-right= time_ago_in_words(review.created_at)
+          %span.pull-right= time_ago_in_words(review.created_at) 
           %p= review.comment
       %hr
+
+:javascript
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
