@@ -49,42 +49,20 @@
     = link_to "Leave a Review", "#", class: "btn btn-success"
   
   %hr
-
-  .row
-    .col-md-12
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star-empty
-      Anonymous
-      %span.pull-right 10 days ago
-      %p This product was great in terms of quality. I would definitely buy another!
-    
-  %hr
-
-  .row
-    .col-md-12
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star-empty
-      Anonymous
-      %span.pull-right 10 days ago
-      %p This product was great in terms of quality. I would definitely buy another!
-    
-  %hr
-
-  .row
-    .col-md-12
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star
-      %span.glyphicon.glyphicon-star-empty
-      Anonymous
-      %span.pull-right 10 days ago
-      %p This product was great in terms of quality. I would definitely buy another!
-    
-  %hr
+  
+  - if @reviews.blank?
+    %h4 No review
+    %hr
+  - else
+    - @reviews.each do |review|
+      .row
+        .col-md-12
+          %span.glyphicon.glyphicon-star
+          %span.glyphicon.glyphicon-star
+          %span.glyphicon.glyphicon-star
+          %span.glyphicon.glyphicon-star
+          %span.glyphicon.glyphicon-star-empty
+          = review.user.name
+          %span.pull-right= time_ago_in_words(review.created_at)
+          %p= review.comment
+      %hr
