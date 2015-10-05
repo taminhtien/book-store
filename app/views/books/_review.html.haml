@@ -1,0 +1,16 @@
+.wrapper
+  = simple_form_for([@book, @review]) do |f|
+    = f.error_notification
+
+    .form-inputs
+      #star-rating
+      = f.input :comment
+    
+    .form-actions
+      = f.button :submit
+
+  :javascript
+    $('#star-rating').raty({
+      path: '/assets/',
+      scoreName: 'review[rating]'
+    });

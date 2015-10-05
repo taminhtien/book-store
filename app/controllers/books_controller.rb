@@ -20,6 +20,7 @@ class BooksController < ApplicationController
 
   def show
     @reviews = Review.where(book_id: @book.id).order("created_at DESC")
+    @review = Review.new
   end
 
   def edit

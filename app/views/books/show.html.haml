@@ -46,7 +46,9 @@
 
 .well
   .text-right
-    = link_to "Leave a Review", "#", class: "btn btn-success"
+    = link_to "Leave a Review", "#", class: "btn btn-success", id: "leave-review"
+  #review-form
+    = render 'review'
   
   %hr
   
@@ -71,3 +73,9 @@
       return $(this).attr('data-score');
     }
   });
+  $(function() {
+    $('a#leave-review').click(function(event){
+      event.preventDefault();
+      $('div#review-form').toggle();
+    });
+  });  
