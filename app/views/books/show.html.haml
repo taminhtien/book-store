@@ -73,9 +73,7 @@
       return $(this).attr('data-score');
     }
   });
-  $(function() {
-    $('a#leave-review').click(function(event){
-      event.preventDefault();
-      $('div#review-form').toggle();
-    });
-  });  
+  $('a#leave-review').click(function(event){
+    event.preventDefault();
+    $('div#review-form').toggle();
+  });

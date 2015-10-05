@@ -4,6 +4,7 @@
   %title Book Store
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
   = csrf_meta_tags
 
 %body
@@ -23,11 +24,12 @@
       = content_tag :div, msg, class: "alert alert-#{name}"
     .row
       .col-md-3
-        %p.lead Book Store
-        .list-group
-          .list-group-item= link_to 'Category 1', '#'
-          .list-group-item= link_to 'Category 2', '#'
-          .list-group-item= link_to 'Category 3', '#'
+        .panel.panel-default
+          .panel-heading
+            %i.fa.fa-shopping-cart
+            Your Cart
+          .panel-body
+
       .col-md-9
         .row
           = yield
