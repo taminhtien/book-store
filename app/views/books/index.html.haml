@@ -8,7 +8,7 @@
         %h4.title= link_to truncate(book.title, length: 15), book
         %p= truncate(book.description, length: 100)
       .ratings
-        .pull-right= link_to "Add to Cart", "#", class: "btn btn-primary"
+        .pull-right= button_to "Add to Cart", line_items_path(book_id: book), class: "btn btn-primary"
         .star-rating{"data-score" => avg_review(book)}
         %p= pluralize(count_review(book), "review")
 
