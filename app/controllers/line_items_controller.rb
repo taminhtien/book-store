@@ -29,7 +29,7 @@ class LineItemsController < ApplicationController
 
     # Gets :book_id from the params object
     book = Book.find(params[:book_id])
-    @line_item = add_product(book.id)
+    @line_item = @cart.add_product(book.id)
 
     respond_to do |format|
       if @line_item.save
@@ -77,6 +77,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:book_id, :cart_id)
+      params.require(:line_item).permit(:book_id)
     end
 end
