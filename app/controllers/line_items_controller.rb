@@ -29,7 +29,7 @@ class LineItemsController < ApplicationController
 
     # Gets :book_id from the params object
     book = Book.find(params[:book_id])
-    @line_item = @cart.line_items.build(book: book)
+    @line_item = add_product(book.id)
 
     respond_to do |format|
       if @line_item.save

@@ -2,3 +2,4 @@
   %h4.pull-right= number_to_currency(line_item.book.price)
   %h4.title= link_to truncate(line_item.book.title, length: 15), line_item.book
   %p= truncate(line_item.book.description, length: 100)
+  %p= line_item.quantity
