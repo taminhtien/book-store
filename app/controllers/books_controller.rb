@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
+  include CurrentCart
   before_action :set_book, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_cart
+  
   def index
     @books = Book.all.order('created_at DESC')
   end

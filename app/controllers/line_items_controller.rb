@@ -34,8 +34,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.save
         format.html {
-            flash[:success] = 'Line item was successfully created.'
-            redirect_to @line_item.cart 
+            redirect_to root_url
           }
         format.json { render :show, status: :created, location: @line_item }
       else

@@ -24,12 +24,14 @@
       = content_tag :div, msg, class: "alert alert-#{name}"
     .row
       .col-md-3
-        .panel.panel-default
-          .panel-heading
-            %i.fa.fa-shopping-cart
-            Your Cart
-          .panel-body
-
+        .cart
+          .panel.panel-default
+            .panel-heading
+              %h4
+                %i.fa.fa-shopping-cart
+                Your Cart
+            .panel-body
+              = render @cart
       .col-md-9
         .row
           = yield
