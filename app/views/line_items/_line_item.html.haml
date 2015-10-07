@@ -1,7 +1,16 @@
-.line_item
-  %li
+- if line_item == @current_item
+  .line_item#current_item
+    %li
     %p.pull-right= number_to_currency(line_item.total_price)
     %p
       %span.label.label-success= line_item.quantity
       = truncate(line_item.book.title, length: 15)
     %hr
+- else
+  .line_item
+    %li
+      %p.pull-right= number_to_currency(line_item.total_price)
+      %p
+        %span.label.label-success= line_item.quantity
+        = truncate(line_item.book.title, length: 15)
+      %hr
