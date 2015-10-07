@@ -2,7 +2,7 @@
   .col-md-9
     .panel.panel-default
       .panel-heading
-        Your Cart
+        Your Shopping
       .panel-body
         .table-responsive
           %table.table.table-hover
@@ -21,9 +21,25 @@
                   %td= image_tag line_item.book.image(:small)
                   %td
                     %p= line_item.book.title
-                    %p= link_to "Remove", line_item, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }
+                    = link_to line_item, class: "btn btn-default", method: :delete, data: { confirm: "Are you sure?" } do
+                      %i.fa.fa-trash-o
+                      Delete
                   %td= number_to_currency(line_item.book.price)
                   %td= line_item.quantity
                   %td= number_to_currency(line_item.total_price)
   .col-md-3
-    = render 'shared/cart_side_bar'
+    .panel.panel-default
+      .panel-heading
+        Your Pay
+      .panel-body
+        %p
+          Total price:
+          %span.pull-right= number_to_currency(@cart.total_price)
+        %p
+          Discount:
+          %span.pull-right= number_to_currency(0)
+        %hr
+        %p
+          Price to pay:
+          %span.pull-right= number_to_currency(@cart.total_price)
+        = link_to "Continue", "#", class: "btn btn-primary btn-large btn-full-width"

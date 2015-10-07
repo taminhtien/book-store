@@ -23,4 +23,21 @@
     - flash.each do |name, msg|
       = content_tag :div, msg, class: "alert alert-#{name}"
     = yield
+  %footer
+    .container
+      .row
+        .col-md-12
+          %ul.list-inline
+            %li
+              = link_to "Home", "#"
+            %li.footer-menu-divider &sdot;
+            %li
+              = link_to "About", "#"
+            %li.footer-menu-divider &sdot;
+            %li
+              = link_to "Services", "#"
+            %li.footer-menu-divider &sdot;
+            %li>
+              = link_to "Contact", "#"
+          %p.copyright.text-muted.small Copyright &copy; Book Store 2015. All Rights Reserved
 
