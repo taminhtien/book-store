@@ -1,79 +1,51 @@
-.panel.panel-default
-  .panel-heading
-    %h4.title= @book.title
-  .panel-body
-    .row
-      .col-md-4
-        = image_tag @book.image.url(:medium)
-      .col-md-8
-        .table-responsive
-          %table.table
-            %tbody
-              %tr
-                %td
-                  %strong Price:
-                %td= number_to_currency(@book.price)
-              %tr
-                %td
-                  %strong Author:
-                %td= @book.author
-              %tr
-                %td
-                  %strong Publisher:
-                %td= @book.publisher
-              %tr
-                %td
-                  %strong Pages:
-                %td= @book.pages
-              %tr
-                %td
-                  %strong Public day:
-                %td= @book.public_date
-              %tr
-                %td
-                  %strong Categories:
-                %td= @book.categories
-              %tr
-                %td
-                  %strong Categories:
-                %td= @book.categories
-  .panel-footer
-    %p= @book.description
-    .text-right
-      .btn-group
-        = link_to "Edit", edit_book_path(@book), class: "btn btn-default"
-        = link_to "Delete", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
+.row
+  .col-md-3
+    = render "shared/cart_side_bar"
+  .col-md-9
+    .panel.panel-default
+      .panel-heading
+        %h4.title= @book.title
+      .panel-body
+        .row
+          .col-md-4
+            = image_tag @book.image.url(:medium)
+          .col-md-8
+            .table-responsive
+              %table.table
+                %tbody
+                  %tr
+                    %td
+                      %strong Price:
+                    %td= number_to_currency(@book.price)
+                  %tr
+                    %td
+                      %strong Author:
+                    %td= @book.author
+                  %tr
+                    %td
+                      %strong Publisher:
+                    %td= @book.publisher
+                  %tr
+                    %td
+                      %strong Pages:
+                    %td= @book.pages
+                  %tr
+                    %td
+                      %strong Public day:
+                    %td= @book.public_date
+                  %tr
+                    %td
+                      %strong Categories:
+                    %td= @book.categories
+                  %tr
+                    %td
+                      %strong Categories:
+                    %td= @book.categories
+      .panel-footer
+        %p= @book.description
+        .text-right
+          .btn-group
+            = link_to "Edit", edit_book_path(@book), class: "btn btn-default"
+            = link_to "Delete", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
 
-.well
-  .text-right
-    = link_to "Leave a Review", "#", class: "btn btn-success", id: "leave-review"
-  #review-form
     = render 'review'
-  
-  %hr
-  
-  - if @reviews.blank?
-    %h4 No review
-    %hr
-  - else
-    - @reviews.each do |review|
-      .row
-        .col-md-12
-          .star-rating{"data-score" => review.rating}
-          = review.user.name
-          %span.pull-right= time_ago_in_words(review.created_at) 
-          %p= review.comment
-      %hr
-
-:javascript
-  $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    }
-  });
-  $('a#leave-review').click(function(event){
-    event.preventDefault();
-    $('div#review-form').toggle();
-  });

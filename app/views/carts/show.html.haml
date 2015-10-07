@@ -1,1 +1,29 @@
-= render @cart
+.row
+  .col-md-9
+    .panel.panel-default
+      .panel-heading
+        Your Cart
+      .panel-body
+        .table-responsive
+          %table.table.table-hover
+            %thead
+              %tr
+                %th
+                  Books on cart 
+                  %span.badge= @cart.total_book  
+                %th Title
+                %th Price
+                %th Quantity
+                %th Total price
+            %tbody
+              - @cart.line_items.each do |line_item|
+                %tr
+                  %td= image_tag line_item.book.image(:small)
+                  %td
+                    %p= line_item.book.title
+                    %p= link_to "Remove", line_item, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" }
+                  %td= number_to_currency(line_item.book.price)
+                  %td= line_item.quantity
+                  %td= number_to_currency(line_item.total_price)
+  .col-md-3
+    = render 'shared/cart_side_bar'

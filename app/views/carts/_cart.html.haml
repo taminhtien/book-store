@@ -3,5 +3,5 @@
 	%strong.text-uppercase Total Price
 	%p.pull-right= number_to_currency(cart.total_price)
 .check-out
-	= button_to "Check out", cart, class: "btn btn-primary", method: :delete, data: { confirm: 'Are you sure?' }
+	= link_to "Check out", cart, class: "btn btn-primary"
 	= button_to "Empty cart", cart, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' }
