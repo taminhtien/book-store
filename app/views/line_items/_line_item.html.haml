@@ -3,7 +3,8 @@
     %li
       %p.pull-right= number_to_currency(line_item.total_price)
       %p
-        %span.badge= line_item.quantity
+        %span= line_item.quantity
+        &times;
         = truncate(line_item.book.title, length: 15)
       %hr
 - else
@@ -11,6 +12,7 @@
     %li
       %p.pull-right= number_to_currency(line_item.total_price)
       %p
-        %span.badge= line_item.quantity
+        %span= line_item.quantity
+        &times;
         = truncate(line_item.book.title, length: 15)
       %hr

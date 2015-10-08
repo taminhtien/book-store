@@ -42,4 +42,4 @@
         %p
           Price to pay:
           %span.pull-right= number_to_currency(@cart.total_price)
-        = link_to "Continue", "#", class: "btn btn-primary btn-large btn-full-width"
+        = link_to "Continue", new_order_path, class: "btn btn-primary btn-large btn-full-width"

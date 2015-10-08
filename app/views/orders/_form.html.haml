@@ -1,0 +1,15 @@
+.well
+  .row
+    .col-md-6.col-md-offset-3
+      = simple_form_for(@order) do |f|
+        = f.error_notification
+
+        .form-inputs
+          = f.input :name
+          = f.input :address
+          = f.input :email
+          = f.input :mobile
+          = f.input :pay_type
+        .form-actions
+          = f.button :button, "Cacel"
+          = f.button :submit, "Ship to this address", class: "btn btn-primary"

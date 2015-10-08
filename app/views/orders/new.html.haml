@@ -1,0 +1,27 @@
+.row
+  .col-md-9
+    .panel.panel-default
+      .panel-heading
+        Delivery address
+      .panel-body
+        = render 'form'
+  .col-md-3
+    .panel.panel-default
+      .panel-heading
+        Invoice
+      .panel-body
+        = render (@cart.line_items)
+        %p
+          Total price:
+          %span.pull-right= number_to_currency(@cart.total_price)
+        %p
+          Discount:
+          %span.pull-right= number_to_currency(0)
+        %p
+          Shipping cost:
+          %span.pull-right= number_to_currency(0)
+        %hr
+        %p
+          Price to pay:
+          %span.pull-right= number_to_currency(@cart.total_price)
+        = link_to "Edit", @cart, class: "btn btn-default pull-right btn-full-width"
