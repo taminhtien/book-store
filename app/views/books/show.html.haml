@@ -1,6 +1,7 @@
 .row
   .col-md-3
-    = render "shared/cart_side_bar"
+    - unless @cart.line_items.empty?
+      = render 'shared/cart_side_bar'
   .col-md-9
     .panel.panel-default
       .panel-heading
