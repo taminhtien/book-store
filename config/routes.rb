@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :orders
   resources :line_items
-  resources :carts
+  resources :carts, except: [:index, :edit]
   devise_for :users
   resources :books do
   	resources :reviews, except: [:show, :index]
