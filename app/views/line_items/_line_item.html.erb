@@ -7,7 +7,6 @@
       <p class="pull-right"><%= number_to_currency(line_item.total_price) %></p>
       <p>
         <span><%= line_item.quantity %> &times;</span>
-
         <%= truncate(line_item.book.title, length: 15) %>
         <hr>
       </p>

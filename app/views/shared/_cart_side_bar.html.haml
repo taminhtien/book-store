@@ -1,8 +1,0 @@
-.panel.panel-default
-  .panel-heading
-    %i.fa.fa-shopping-cart
-    Your Cart
-  .panel-body
-    #cart
-      - unless @cart.line_items.empty?
-        = render @cart

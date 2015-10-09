@@ -1,5 +1,11 @@
+// Shows cart when first item come
+if ($('#cart li').length == 0) {
+	$('#cart').fadeOut(0).fadeIn(500);
+}
+
 // escape_javascript() helper method that converts this Ruby string into a format
 // acceptable as input to JavaScript.
-
 $('#cart').html("<%= escape_javascript render(@cart) %>");
+
+// Creates effect when new item added
 $('#current_item').fadeOut(0).fadeIn(500);

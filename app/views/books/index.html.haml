@@ -1,7 +1,7 @@
 .row
   .col-md-3
-    - unless @cart.line_items.empty?
-      = render 'shared/cart_side_bar'
+    = hidden_div_if(@cart.line_items.empty?, id: 'cart') do
+      = render @cart
   .col-md-9
     - @books.each do |book|
       .col-sm-4-col-lg-4.col-md-4
