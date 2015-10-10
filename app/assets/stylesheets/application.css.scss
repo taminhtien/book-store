@@ -102,3 +102,7 @@ body {
 .btn-full-width {
   width: 100%;
 }
+
+.borderless tbody tr td {
+    border: none;
+}

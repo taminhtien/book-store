@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
         session[:cart_id] = nil
 
         format.html {
-          flash[:success] = "Thank for your order"
+          flash[:success] = "Thank for your order!"
           redirect_to root_url
         }
         format.json { render :show, status: :created, location: @order }

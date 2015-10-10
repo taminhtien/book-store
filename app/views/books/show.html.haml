@@ -11,37 +11,38 @@
           .col-md-4
             = image_tag @book.image.url(:medium)
           .col-md-8
-            .table-responsive
-              %table.table
-                %tbody
-                  %tr
-                    %td
-                      %strong Price:
-                    %td= number_to_currency(@book.price)
-                  %tr
-                    %td
-                      %strong Author:
-                    %td= @book.author
-                  %tr
-                    %td
-                      %strong Publisher:
-                    %td= @book.publisher
-                  %tr
-                    %td
-                      %strong Pages:
-                    %td= @book.pages
-                  %tr
-                    %td
-                      %strong Public day:
-                    %td= @book.public_date
-                  %tr
-                    %td
-                      %strong Categories:
-                    %td= @book.categories
-                  %tr
-                    %td
-                      %strong Categories:
-                    %td= @book.categories
+            .row
+              .table-responsive
+                %table.table.borderless
+                  %tbody
+                    %tr
+                      %td
+                        %strong Price:
+                      %td= number_to_currency(@book.price)
+                    %tr
+                      %td
+                        %strong Author:
+                      %td= @book.author
+                    %tr
+                      %td
+                        %strong Publisher:
+                      %td= @book.publisher
+                    %tr
+                      %td
+                        %strong Pages:
+                      %td= @book.pages
+                    %tr
+                      %td
+                        %strong Public day:
+                      %td= @book.public_date
+                    %tr
+                      %td
+                        %strong Categories:
+                      %td= @book.categories
+            .row
+              .col-md-12
+                .well
+                  = button_to "Add to Cart", line_items_path(book_id: @book), class: "btn btn-primary", remote: true
       .panel-footer
         %p= @book.description
         .text-right

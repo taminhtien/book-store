@@ -1,15 +1,13 @@
-.well
-  .row
-    .col-md-6.col-md-offset-3
-      = simple_form_for @order do |f|
-        = f.error_notification
-
-        .form-inputs
-          = f.input :name, required: true
-          = f.input :address, required: true
-          = f.input :email, required: true
-          = f.input :mobile, as: :integer, required: true
-          = f.input :pay_type, collection: Order::PAYMENT_TYPES, required: true
-        .form-actions
-          = f.button :button, "Cancel", class: "btn btn-default"
-          = f.button :submit, "Ship to this address", class: "btn btn-primary"
+.row
+  .col-md-6.col-md-offset-3
+    = simple_form_for @order do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :name, required: true
+        = f.input :address, required: true
+        = f.input :email, required: true
+        = f.input :mobile, as: :integer, required: true
+        = f.input :pay_type, collection: Order::PAYMENT_TYPES, required: true
+      .form-actions
+        = f.button :button, "Cancel", class: "btn btn-default"
+        = f.button :submit, "Ship to this address", class: "btn btn-primary"
