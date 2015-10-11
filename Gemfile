@@ -14,7 +14,6 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'paperclip', '~> 4.3.1'
 gem 'haml', '~> 4.0.7'
 gem 'devise', '~> 3.5.2'
-gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'byebug'
