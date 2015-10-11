@@ -1,5 +1,15 @@
 .panel.panel-default
-	.panel-heading
-		Best Seller Books
-	.panel-body
-		
+  .panel-heading
+    Best Seller Books
+  .panel-body
+    %ul
+      - best_seller_books.each do |book_id, quantity|
+        %li
+          %p.cover= image_tag book(book_id).image(:small)
+          %p.star-rating{ "data-score" => avg_review(book(book_id)) }
+          %p.title= link_to book(book_id).title, book(book_id)
+          %p= number_to_currency(book(book_id).price)
+          %p.comment= truncate(book(book_id).description, length: 100)
+          %span.label.label-default.quantity= quantity
+        %hr
+        .clearfix
