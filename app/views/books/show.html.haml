@@ -40,14 +40,13 @@
                         %strong Categories:
                       %td= @book.categories
             .row
-              .col-md-12
-                .well
-                  = button_to "Add to Cart", line_items_path(book_id: @book), class: "btn btn-primary", remote: true
+              = button_to "Add to Cart", line_items_path(book_id: @book), class: "btn btn-primary", remote: true
       .panel-footer
         %p= @book.description
-        .text-right
-          .btn-group
-            = link_to "Edit", edit_book_path(@book), class: "btn btn-default"
-            = link_to "Delete", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
+        - if admin?
+          .text-right
+            .btn-group
+              = link_to "Edit", edit_book_path(@book), class: "btn btn-default"
+              = link_to "Delete", book_path(@book), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"
 
     = render 'review'

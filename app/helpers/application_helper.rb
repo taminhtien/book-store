@@ -5,4 +5,12 @@ module ApplicationHelper
 		end
 		content_tag("div", attributes, &block)
 	end
+
+	def admin?
+		if current_user.admin
+			true
+		else
+			false
+		end
+	end
 end
