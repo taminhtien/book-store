@@ -11,6 +11,8 @@ class Book < ActiveRecord::Base
 	belongs_to :user
 	has_many :reviews
 	has_many :line_items
+  searchkick
+  # Then, run $rake searchkick:reindex CLASS=Book
 
 	private
 

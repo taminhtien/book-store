@@ -1,0 +1,5 @@
+.row
+  - @books.each do |book|
+    .col-sm-6.col-md-3
+      .thumbnail
+        = link_to (image_tag book.image.url(:medium)), book
