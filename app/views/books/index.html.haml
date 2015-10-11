@@ -2,6 +2,10 @@
   .col-md-3
     = hidden_div_if(@cart.line_items.empty?, id: 'cart') do
       = render @cart
+    .best-seller-books
+      = render 'best_seller_books'
+    .recent-reviews
+      = render 'recent_reviews'
   .col-md-9
     - @books.each do |book|
       .col-sm-4-col-lg-4.col-md-4

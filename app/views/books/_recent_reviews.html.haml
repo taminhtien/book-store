@@ -1,0 +1,13 @@
+.panel.panel-default
+  .panel-heading
+    Recent Reviews
+  .panel-body
+    %ul
+      - recent_reviews.each do |review|
+        %li
+          %p.cover= image_tag review.book.image(:small)
+          %p.star-rating{ "data-score" => review.rating }
+          %p.user_name= review.user.name
+          %p.title= link_to review.book.title, review.book
+          %p.comment= truncate(review.comment, length: 100)
+        %hr

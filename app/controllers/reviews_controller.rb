@@ -30,7 +30,10 @@ class ReviewsController < ApplicationController
     @review.book_id = @book.id
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @book, notice: 'Review was successfully created.' }
+        format.html {
+          flash[:success] = 'Review was successfully created.'
+          redirect_to @book
+        }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }

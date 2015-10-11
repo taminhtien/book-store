@@ -11,4 +11,8 @@ module BooksHelper
   def count_review(book)
   	Review.where(book_id: book.id).count
   end
+
+  def recent_reviews
+  	@recent_reviews = Review.all.order('created_at DESC').limit(5)
+  end
 end

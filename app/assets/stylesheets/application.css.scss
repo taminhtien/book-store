@@ -106,3 +106,28 @@ body {
 .borderless tbody tr td {
     border: none;
 }
+
+.recent-reviews {
+  ul {
+    padding-left: 0;
+  }
+  li {
+    list-style: none;
+  }
+  .user_name {
+    color: $red;
+    font-weight: bold;
+  }
+  .comment {
+    color: #7f8c8d;
+    font-size: 13px;
+  }
+  .cover {
+    float: left;
+    padding-right: 10px;
+    img {
+      width: 60px;
+      height: auto;
+    }
+  }
+}
