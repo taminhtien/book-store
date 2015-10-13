@@ -13,4 +13,26 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require_tree
+
+$(document).ready(function () {
+  $('a.leave-review').click(function(event){
+    event.preventDefault();
+    $('div#review-form').toggle();
+  });
+
+  // Get rating score as read only
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    }
+  });
+
+  // Load rating score as star to choose
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+});

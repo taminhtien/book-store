@@ -20,12 +20,3 @@
             .pull-right= button_to "Add to Cart", line_items_path(book_id: book), class: "btn btn-primary", remote: true
             .star-rating{"data-score" => avg_review(book)}
             %p= pluralize(count_review(book), "review")
-
-:javascript
-  $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    }
-  });

@@ -1,6 +1,6 @@
 .well
   .text-right
-    = link_to "Leave a Review", "#", class: "btn btn-success", id: "leave-review"
+    = link_to "Leave a Review", "#", class: "btn btn-success leave-review"
   #review-form
     .wrapper
       = simple_form_for([@book, @review]) do |f|
@@ -24,22 +24,3 @@
           %span.pull-right= time_ago_in_words(review.created_at) 
           %p= review.comment
       %hr
-
-:javascript
-  $('#star-rating').raty({
-    path: '/assets/',
-    scoreName: 'review[rating]'
-  });
-
-  $('.star-rating').raty({
-    path: '/assets/',
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    }
-  });
-  
-  $('a#leave-review').click(function(event){
-    event.preventDefault();
-    $('div#review-form').toggle();
-  });
