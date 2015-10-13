@@ -37,5 +37,13 @@ $(document).ready(function () {
     scoreName: 'review[rating]'
   });
 
-  
+  $('a[data-remote=true]').live('ajax:before', function () {
+     if ($(this).attr('ajax-loading')) {
+       return false;
+     } else {
+       $(this).attr('ajax-loading', true);
+     }
+  }).live('ajax:complete', function () {
+    $(this).removeAttr('ajax-loading');
+  });
 });
