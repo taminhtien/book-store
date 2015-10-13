@@ -1,6 +1,7 @@
 .row
   .col-md-3
-   
+    = hidden_div_if(@cart.line_items.empty?, id: 'cart') do
+      = render @cart
   .col-md-9
     .panel.panel-default
       .panel-heading

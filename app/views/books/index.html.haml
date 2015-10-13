@@ -8,7 +8,7 @@
       = render 'recent_reviews'
   .col-md-9
     - @books.each do |book|
-      .col-sm-4-col-lg-4.col-md-4
+      .col-sm-4.col-lg-4.col-md-4
         .thumbnail
           .img-wrapper
             = link_to (image_tag book.image.url(:medium), class: "cover"), book
@@ -17,6 +17,6 @@
             %h4.title= link_to truncate(book.title, length: 15), book
             %p= truncate(book.description, length: 100)
           .ratings
-            .pull-right= button_to "Add to Cart", line_items_path(book_id: book), class: "btn btn-primary", id: "add-cart", remote: true
+            .pull-right= button_to "Add to Cart", line_items_path(book_id: book), class: "btn btn-primary", remote: true, method: :post
             .star-rating{"data-score" => avg_review(book)}
             %p= pluralize(count_review(book), "review")
