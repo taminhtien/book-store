@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree
+//= require bootstrap
 
 $(document).ready(function () {
   $('a.leave-review').click(function(event){
@@ -35,4 +36,6 @@ $(document).ready(function () {
     path: '/assets/',
     scoreName: 'review[rating]'
   });
+
+  
 });
